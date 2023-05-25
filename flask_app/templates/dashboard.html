@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css' rel='stylesheet'
+    integrity='sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We' crossorigin='anonymous'>
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js'
+    integrity='sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj' crossorigin='anonymous'></script>
+    <link rel='stylesheet' href='{{ url_for('static', filename='/style.css') }}'>
+    <title> Reviews</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+</head>
+<body style="background-color: slategrey;">
+
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark mx-auto fs-2" style="font-family: 'Audiowide', cursive;">
+        <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="/home">Home</a>
+            <a class="nav-link" href="/jobs">Jobs</a>
+            <a class="nav-link" href="/dashboard">Reviews</a>
+            </div>
+        </div>
+        </div>
+    </nav>
+    <div class="container row col-5 justify-content-between" style="position:absolute;right:0px;width:25%;height:100px;">
+        <img src="/static/poseidons team logo.jpeg" alt="logo" style="width: 40%; border-radius:50%;"  >
+    </div>
+    <h1 style="text-align: center; color: rgb(36, 229, 255); font-size: 4rem; font-family: 'Audiowide', cursive;">Poseidon's Team</h1>
+    <div class="container p-3 mt-5" style="background-color: lightgray; border-radius: 10px; border: solid black;">
+        <div class="container justify-content-center mx-auto mt-2">
+        <div class="row">
+            <h1 class="p-0 col-6" >Hey {{user.first_name}} {{user.last_name}}!!</h1>
+            <a href="/reviews/new" class="btn btn-secondary offset-3 col-1" style="height: 70%;">Create</a>
+            <a href="/user/logout" class="btn btn-secondary offset-1 col-1" style="height: 70%;">Logout</a>
+        </div>
+        <div class="row">
+            <h4>All Reviews</h4>
+
+            <table class="table table-striped table-hover table-sm fs-4 text-center">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Review</th>
+                        <th>Date</th>
+                        <th>Pictures</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for review in reviews %}
+                        <tr>
+                            <td>{{review.name}}</td>
+                            <td>{{review.review}}</td>
+                            <td>{{review.date_made.strftime('%B %dth, %Y')}}</td>
+                            <td>
+                                <a href="/reviews/{{review.id}}" class="btn btn-info">View review</a>
+                                {% if session['user_id'] == review.creator.id %}
+                                    <a href="/reviews/destroy/{{review.id}}" class="btn btn-danger">Delete</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    </div>
+    
+</body>
+</html>

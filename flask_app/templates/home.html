@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css' rel='stylesheet'
+    integrity='sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We' crossorigin='anonymous'>
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js'
+    integrity='sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj' crossorigin='anonymous'></script>
+    <link rel='stylesheet' href='{{ url_for('static', filename='/style.css') }}'>
+    <title> Reviews</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark mx-auto fs-2">
+        <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" style="font-family: 'Audiowide', cursive;" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link" href="/jobs">Jobs</a>
+            <a class="nav-link" href="/dashboard">Reviews</a>
+            </div>
+        </div>
+        </div>
+    </nav>
+    <div class="bg-dark" style="height:400px;">
+
+        <div class="container row col-5 justify-content-between" style="position:absolute;right:0px;width:25%;height:100px;">
+            <a href="/user/logout" class="btn btn-info " style="height: 70%; width: 250px; border: solid black; font-size: 1.5rem; box-shadow: 5px 5px; margin-top: 20px; ">Login or Register</a>
+            <img src="/static/poseidons team logo.jpeg" alt="logo" style="width: 40%; border-radius:50%;"  >
+        </div>
+        <h1 style="text-align: center; color: rgb(36, 229, 255); font-size: 4rem; font-family: 'Audiowide', cursive;">Poseidon's Team</h1>
+        <div>
+            <h1 style="color: rgb(36, 229, 255); text-align: center; padding-top: 200px; font-size: 3.5rem; font-family: 'Audiowide', cursive;" >About Us </h1>
+        </div>
+    </div>
+    <div class="container ">
+        <h1 style="font-size: 1.5rem;text-align: center; padding-top: 50px;">Introducing "Poseidon's Team Powerwashing" - a family-owned and operated powerwashing company founded by two brothers, 
+            Samuel and TJ, along with their experienced father, Aaron. With a passion for cleanliness and a commitment to providing exceptional service, the Poseidon's Team Powerwashing team 
+            brings their expertise and enthusiasm to help transform and revitalize residential and commercial properties. As a family business, Poseidon's Team Powerwashing brings a personal 
+            touch to every job, delivering outstanding results and building lasting relationships with their clients. With their combined knowledge, skill, and dedication, the Poseidon's Team Powerwashing 
+            is ready to tackle any powerwashing project with professionalism and a commitment to customer satisfaction.</h1>
+        </div>
+        <div class="container p-3" style=" text-align: center; ">
+            <div class="row">
+                <div class="col">
+                    <img style="width: 50%;" src="/static/ben-sweet-2LowviVHZ-E-unsplash.jpg" alt="profile pic">
+                </div>
+                <div class="col">
+                    <img style="width: 50%;" src="/static/ben-sweet-2LowviVHZ-E-unsplash.jpg" alt="profile pic">
+                </div>
+                <div class="col ">
+                    <img style="width: 50%;" src="/static/ben-sweet-2LowviVHZ-E-unsplash.jpg" alt="profile pic">
+                </div>
+                </div>
+            </div>
+    <div class="container" style=" text-align: center;">
+        <div class="row">
+            <div class="col">
+                Samuel
+                <p>One of the co-founders of Poseidon's Team Powerwashing, 
+                    Samuel is a skilled and detail-oriented powerwashing expert. 
+                    He has years of experience in the industry and is known for 
+                    his keen eye for detail, ensuring that every surface he cleans 
+                    is spotless and gleaming. Samuel is also the team's creative mind, 
+                    always coming up with innovative techniques and solutions to tackle 
+                    even the toughest powerwashing challenges.</p>
+            </div>
+            <div class="col">
+                TJ
+                <p> The other co-founder of Poseidon's Team Powerwashing, 
+                    TJ is a dynamic and results-driven professional. 
+                    He brings a wealth of knowledge and experience to the team, 
+                    having worked in the powerwashing industry for over a decade. 
+                    TJ is known for his exceptional customer service skills, always 
+                    going the extra mile to exceed clients' expectations. He is also a 
+                    skilled problem solver, adept at finding solutions to unique powerwashing situations.</p>
+            </div>
+            <div class="col">
+                Aaron
+                <p>The patriarch of the family and an integral part of the Poseidon's Team Powerwashing 
+                    team, Aaron brings years of wisdom and expertise to the table. 
+                    He has a deep understanding of the powerwashing industry, having built a successful 
+                    career in the field. Aaron serves as the team's mentor and advisor, providing guidance 
+                    and support to his sons, Samuel and TJ, as they grow their business. His strong work ethic 
+                    and commitment to excellence inspire the entire team to strive for the highest level of quality in their work.</p>
+            </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

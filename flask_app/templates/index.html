@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/style.css') }}">
+    <title>registration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    </head>
+    <body class="container container bg-dark">
+        <h1 style="color: rgb(58, 181, 197); font-size: 3rem; text-align: center; margin-top: 20px;" >Register or Login</h1>
+    <div class="row">
+        <!-- ------------this is the account creation section------------ -->
+
+        <form action="/user/register/process" method="post" class="col-4 mx-auto text-balck p-3"  style="background-color: lightgrey; border: solid black; border-radius: 10px; margin-top: 100px;">
+            <h1>Register</h1>
+            <div>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages if category == "register" %}
+                            <p class="alert alert-danger card invalid-feedback mx-0 mb-0 p-1 text-center">{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <div class="form-group mb-3">
+                <label for="first_name" class="form-label">First Name:</label>
+                <input type="text" name="first_name" id="first_name" class="form-control">
+            </div>
+            <div class="form-group mb-3">
+                <label for="last_name" class="form-label">Last Name:</label>
+                <input type="text" name="last_name" id="last_name" class="form-control">
+            </div>
+            <div class="form-group mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="text" name="email" id="email" class="form-control">
+            </div>
+            <div class="form-group mb-3">
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" name="password" id="password" class="form-control">
+            </div>
+            <div class="form-group mb-3">
+                <label for="confirm_password" class="form-label">Confirm Password:</label>
+                <input type="password" name="confirm_password" id="confirm_password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-info">Register</button>
+        </form>
+
+        <form action="/user/login/process" method="post" class="col-4 mx-auto text-balck p-3"  style="background-color: lightgrey; border: solid black; border-radius: 10px;  margin-top: 100px;">
+        {% with messages = get_flashed_messages(category_filter=['login']) %}
+            {% if messages %}
+            <div class="alert alert-danger" role="alert">
+            <strong>Incorrect Login Attempt</strong>
+                {% for message in messages %}
+                <p>{{message}}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+        {% endwith %}
+        <h1>Login</h1>
+        <hr class="mb-4">
+        <p>Email:</p>
+        <input type="text" name="email">
+        <p>Password:</p>
+        <input type="password" name="password">
+        <input type="submit" value="Login" class="btn btn-info">
+        </form>
+
+    </div>
+</body>
+</html>
